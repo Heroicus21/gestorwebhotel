@@ -1,0 +1,80 @@
+<app-nav-bar></app-nav-bar>
+
+<div class="container" style="background-color: #ffffff;"> 
+  
+<div class="col-md-12 jumbotron" style="height: 80px;width: 1050px;">    
+    <legend>Reservas</legend>
+</div>  
+<div class="col-md-5 jumbotron">
+    <legend>Ingreso{{suiteSelected.nombre}}</legend>
+    <div class="col-md-12" >
+        <div class="col-md-3" style="margin-top: 40px">
+            <label for="text" class="col-md-2 control-label"><span >Suite</span></label>
+        </div>
+        <div class="col-md-8" style="margin-top: 30px">
+            <select [(ngModel)]="suiteSelected" (input)="onInput($event) " class="form-control" required="required">
+                <option *ngFor="let suite of suitesList" [ngValue]="suite">
+                  {{suite.nombre}}
+                </option>
+              </select>   
+        </div>
+    </div>
+    
+    <div class="col-md-12" style="margin-top: 10px; ">
+        <div class="col-md-3" style="margin-top: 10px">
+            <label for="text" class="col-md-2 control-label"><span >Fecha Entrada</span></label>
+        </div>
+        <div class="col-md-8" style="margin-top: 10px">
+            <input  type="date" class="form-control col-md-2 " id="busqueda" placeholder="Search" [(ngModel)]="fechaEntrada">
+        </div>
+    </div>
+    
+    <div class="col-md-12" style="margin-top: 10px">
+        <div class="col-md-3" style="margin-top: 10px">
+            <label for="text" class="col-md-2 control-label"><span >Fecha Salida</span></label>
+        </div>
+        <div class="col-md-8" style="margin-top: 10px">
+            <input  type="date" class="form-control col-md-2 " id="busqueda" placeholder="Search" [(ngModel)]="fechaSalida">
+        </div>
+    </div>
+    <a class="btn btn-success" style="margin-top: 10px" (click)="cotizarReserva()">Cotizar</a>
+</div>
+    <div class="col-md-1 "></div>
+    <div class="col-md-5 jumbotron " style="height: 400px;">
+        <legend>Cliente</legend>
+        <div class="col-md-12">
+            <label for="inputEmail" class="col-md-12 control-label"><span>Email:  {{clienteSeleccionado.mail}}</span></label>
+        </div>
+        <div class="col-md-12">
+            <label for="text" class="col-md-12 control-label"><span >Nombre:  {{clienteSeleccionado.nombre}}</span></label>
+        </div>
+        <div class="col-md-12">
+            <label for="text" class="col-md-12 control-label"><span >Apellido:  {{clienteSeleccionado.apellido}}</span></label>
+        </div>
+        <div class="col-md-12">
+            <label for="text" class="col-md-12 control-label"><span >DNI:  {{clienteSeleccionado.dni}}</span></label>
+        </div>
+        <div class="col-md-12">
+            <label for="text" class="col-md-12 control-label"><span >Telefono Fijo:  {{clienteSeleccionado.telFijo}}</span></label>
+        </div>
+        <div class="col-md-12">
+            <label for="text" class="col-md-12 control-label"><span >Celular:   {{clienteSeleccionado.telCel}}</span></label>
+        </div>
+        <div class="col-md-12">
+            <div class="col-md-8" style="margin-top: 10px">
+                <input  type="text" class="form-control col-md-2 " id="busqueda" placeholder="DNI" [(ngModel)]="dniBuscado">
+            </div>
+            <div class="col-md-2">
+                <button type="submit" class="btn btn-default" (click)="findClienteByDni()" style="margin-top: 10px">Submit</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 jumbotron"  style="height: 30px; margin-left: 350px;">
+        <div class="col-md-6 ">
+            <a class="btn btn-warning right " routerLink="/reservas" style="margin-top: -15px">Cancelar</a>
+        </div>
+        <div class="col-md-6 ">
+            <a class="btn btn-success" style="margin-top: -15px" (click)="guardarReserva()">Guardar</a>
+        </div>
+    </div>
+</div>

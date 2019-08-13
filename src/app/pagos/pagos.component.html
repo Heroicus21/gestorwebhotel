@@ -1,0 +1,108 @@
+<app-nav-bar></app-nav-bar>
+<DIV class="container" style="background-color: #ffffff;">   
+    <div class="col-md-12 jumbotron" style="height: 100px;width: 1050px;">
+        <legend>Pagos</legend>
+    </div>
+<DIV class="col-md-5 jumbotron" style="height: 350px;">
+    
+    <DIV class="col-md-12" >
+        <legend>Habitacion</legend>
+        <DIV class="col-md-3" style="margin-top: 40px">
+            <label for="text" class="col-md-2 control-label"><span >Suite</span></label>
+        </DIV>
+        <DIV class="col-md-8" style="margin-top: 30px">
+            <label  class="form-control" >{{reserva.idCabania.nombre}}</label>   
+        </DIV>
+    </DIV>
+    
+   <DIV class="col-md-12" style="margin-top: 10px">
+        <DIV class="col-md-3" style="margin-top: 10px">
+            <label for="text" class="col-md-2 control-label"><span >Fecha Entrada</span></label>
+        </DIV>
+        <DIV class="col-md-8" style="margin-top: 10px">
+            <label class="form-control col-md-2 " >
+                {{reserva.fechaEntrada|date  : 'dd'}}/{{reserva.fechaEntrada | date :'MM'}}/{{reserva.fechaEntrada | date: 'yyyy'}}
+            </label>
+        </DIV>
+    </DIV>
+    
+    <DIV class="col-md-12" style="margin-top: 10px">
+        <DIV class="col-md-3" style="margin-top: 10px">
+            <label for="text" class="col-md-2 control-label"><span >Fecha Salida</span></label>
+        </DIV>
+        <DIV class="col-md-8" style="margin-top: 10px">
+            <label class="form-control col-md-2 " id="fechaSalidaResComp">
+                {{reserva.fechaSalida|date  : 'dd'}}/{{reserva.fechaSalida | date :'MM'}}/{{reserva.fechaSalida | date: 'yyyy'}}
+            </label>
+        </DIV>
+    </DIV>
+</DIV>
+<DIV class="col-md-1 "></DIV>
+<DIV class="col-md-5 jumbotron " style="height: 350px;">
+    <legend>Cliente</legend>
+    <div class="col-md-12">
+        <label for="inputEmail" class="col-md-12 control-label"><span>Email:  {{reserva.idPersona.mail}}</span></label>
+    </div>
+    <div class="col-md-12">
+        <label for="text" class="col-md-12 control-label"><span >Nombre:  {{reserva.idPersona.nombre}}</span></label>
+    </div>
+    <div class="col-md-12">
+        <label for="text" class="col-md-12 control-label"><span >Apellido:  {{reserva.idPersona.apellido}}</span></label>
+    </div>
+    <div class="col-md-12">
+        <label for="text" class="col-md-12 control-label"><span >DNI:  {{reserva.idPersona.dni}}</span></label>
+    </div>
+    <div class="col-md-12">
+        <label for="text" class="col-md-12 control-label"><span >Telefono Fijo:  {{reserva.idPersona.telFijo}}</span></label>
+    </div>
+    <div class="col-md-12">
+      <label for="text" class="col-md-12 control-label"><span >Celular:   {{reserva.idPersona.telCel}}</span></label>
+    </div>
+</DIV>
+
+<DIV class="col-md-12 jumbotron " style="height: 90px; width: 1050px;">
+    <legend>Total a pagar<span style="font-size: 25px; color: #F39814; margin-right: 20px;">...............................................................................................${{reserva.monto}} </span></legend>
+</DIV>
+
+<DIV class="col-md-4 jumbotron " style="height: 30px; margin-left: 340px;">
+    <DIV class="col-md-6 ">
+        <a routerLink="/reservas" class="btn btn-warning right " style="margin-top: -15px;margin-right: 5px;">Cancelar</a>
+    </DIV>
+    <DIV class="col-md-6 ">
+        <a class="btn btn-success" style="margin-top: -15px;margin-left: 5px;" (click)="hacerPago()">
+                Pagar
+            <i class="material-icons " style="margin-right: -10px;margin-top: -40px;">attach_money</i>
+        </a>
+        
+            <meta charset="utf-8">
+                <link href="https://portal.todopago.com.ar/app/css/boton.css" rel="stylesheet">
+                <div class="boton-todopago-css" style="margin-left: 200px;margin-top: -70px;">
+                  <a href='https://forms.todopago.com.ar/formulario/commands?command=formulario&fr=1&m=2cee0975c557fedc77f86f620fef76d9#utm_source=729313&utm_medium=boton_de_pago&utm_campaign=web'>
+                    <div id="aviso-2" class="tipo-boton-class col-md-4 col-sm-4 col-xs-12 aviso1_claro aviso aviso-large aviso-light clearfix" style="display: block;">
+                      <div class="aviso-wrapper clearfix col-md-12 col-sm-12 col-xs-12" style="width: 290px; height: 320px;">
+                        <div class="aviso-image-wrapper clearfix" style="display: block;">
+
+                          <img src="https://portal.todopago.com.ar/app/api/sim/getImage/2cee0975c557fedc77f86f620fef76d9" class="aviso-imagen" alt="" title="">
+
+                        </div>
+                        <div class="aviso-data clearfix">
+                          <div class="col-md-8 col-sm-9 col-xs-12">
+                            <span class="aviso-title line">Pago con tarjeta</span>
+                            <span class="aviso-description line">Realizacion de pago</span>
+                          </div>
+                          <div class="col-md-5 col-sm-4 col-xs-12">
+                            <span class="aviso-price-label line text-center">Precio del &Iacute;tem</span>
+                            <span class="aviso-price line text-center">1,00</span>
+                            <input class="aviso-boton-texto btn disabled" value="Pago" style="border: 1px solid rgb(250, 246, 246);" type="button">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+        
+        
+    </DIV>   
+</DIV>
+</DIV>
+

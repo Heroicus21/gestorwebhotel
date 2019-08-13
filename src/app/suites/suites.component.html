@@ -1,0 +1,126 @@
+<app-nav-bar></app-nav-bar>
+
+<DIV class="container" style="background-color: #ffffff;">
+    <DIV class="row"> 
+        <div class="col">
+            <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" >Suites</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      
+      
+      
+    </div>
+  </div>
+</nav>
+        </div>        
+        </DIV>
+    <DIV *ngIf="edicion" >    
+<table class="table table-striped table-hover info">
+  <thead>
+    <tr>
+      <th>#</th>
+      
+      <th>Nro Suite</th>
+      <th>Nombre</th>
+      <th>Cant. Personas</th>
+      <th>Ambientes</th>
+      <th>Monto p/dia</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let suite of suitesList">
+      <th>#</th>
+      
+      <th>{{suite.idSuite}}</th>
+      <th>{{suite.nombre}}</th>
+      <th>{{suite.cantPersonas}}</th>
+      <th>{{suite.ambientes}}</th>  
+      <th>{{suite.costoPorDia}}</th>  
+      
+      <th>
+          
+          <!-- <button  >
+          <span class="glyphicon glyphicon-remove-circle"></span>
+            </button>
+             -->
+          <button (click)="prepararEdicion(suite)">  
+            <span class="glyphicon glyphicon-share" ></span>
+           </button>
+      </th>
+    
+    </tr>
+    
+  </tbody>
+</table>
+</DIV>        
+    <DIV *ngIf="editar">
+ <DIV class="col-md-5 jumbotron">
+    <legend>Edicion de Suite</legend>
+    <DIV class="col-md-12" >
+        <DIV class="col-md-3" style="margin-top: 40px">
+            <label for="text" class="col-md-2 control-label"><span >Suite</span></label>
+        </DIV>
+    </DIV>
+    
+   <DIV class="col-md-12" style="margin-top: 10px">
+        <DIV class="col-md-3" style="margin-top: 10px">
+            <label for="text" class="col-md-2 control-label"><span >Nombre</span></label>
+        </DIV>
+        <DIV class="col-md-8" style="margin-top: 10px">
+            <input  type="text" class="form-control col-md-2 " id="busqueda" placeholder="Search" [(ngModel)]="suiteSelected.nombre">
+        </DIV>
+    </DIV>
+    
+    <DIV class="col-md-12" style="margin-top: 10px">
+        <DIV class="col-md-3" style="margin-top: 10px">
+            <label for="text" class="col-md-2 control-label"><span >Costo por día</span></label>
+        </DIV>
+        <DIV class="col-md-8" style="margin-top: 10px">
+            <input  type="number" class="form-control col-md-2 " id="busqueda" placeholder="Search" [(ngModel)]="suiteSelected.costoPorDia">
+        </DIV>
+    </DIV>
+    
+</DIV>
+        <DIV class="col-md-5 jumbotron" style="margin-left: 50px;">
+            <div class="row">
+                <div class="col-sm-6">
+                    <img src="../../assets/img/2a_02.jpg" style="width: 50ps; height: 100px" alt="foto1" />
+                </div>
+                <div class="col-sm-6">
+                    <img src="../../assets/img/2a_04.jpg" style="width: 50ps; height: 100px" alt="foto1" />
+                </div>
+            </div>
+            <div class="row" style="padding-top: 30px; margin-top: 20px;">
+                <div class="col-sm-6">
+                    <img src="../../assets/img/3a_01.jpg" style="width: 50ps; height: 100px" alt="foto1" />
+                </div>
+                <div class="col-sm-6">
+                    <img src="../../assets/img/3a_05.jpg" style="width: 50ps; height: 100px" alt="foto1" />
+                </div>
+            </div>
+</DIV>
+<DIV class="col-md-1 "></DIV>
+
+
+<DIV class="col-md-12 ">
+    <DIV class="col-md-6 ">
+        <a class="btn btn-warning right " routerLink="/clientes" style="margin-top: 10px">Cancelar</a>
+    </DIV>
+    <DIV class="col-md-6 ">
+    
+    <a class="btn btn-success" style="margin-top: 10px" (click)="guardarSuite()">Guardar</a>
+    </DIV>
+</DIV>
+    </DIV>
+    
+</DIV>
